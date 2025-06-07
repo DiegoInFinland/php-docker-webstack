@@ -28,6 +28,8 @@ rm composer-setup.php
 mv composer.phar /usr/local/bin/composer
 apt update && apt install zip vim -y -qq
 
+mkdir -p ./public/gallery ./public/docs 
+
 sleep 1 
 docker-php-ext-install pdo pdo_mysql
 
