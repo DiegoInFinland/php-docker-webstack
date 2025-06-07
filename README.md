@@ -29,7 +29,7 @@ This container allows you to:
 Firstly, you need Docker compose [docker](https://docker.com). Download it if you didn't already!
 
 Then, clone the repo:
-```bash git clone ```
+```bash git clone https://github.com/DiegoInFinland/php-docker-webstack.git ```
 
 After that, Installation is mostly quite forward, in the root directory:
 ```bash ./start_server.sh ```
@@ -41,7 +41,7 @@ To delete the container:
 
 ## Screenshots
 
-Dashboard - extremely simåple and functional. It follows Apache's look.
+Dashboard is extremely simple and functional. It follows Apache's look too :)
 
 ![Frontpage](scripts/img/frontpage.png)
 
