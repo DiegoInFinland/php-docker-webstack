@@ -41,7 +41,7 @@ To delete the container:
 
 ## Screenshots
 
-Dashboard is extremely simple and functional. It follows Apache's look too :)
+Dashboard is very simple and It follows Apache's old school look too :)
 
 ![Frontpage](scripts/img/frontpage.png)
 
