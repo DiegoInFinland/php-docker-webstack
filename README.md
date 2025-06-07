@@ -19,7 +19,7 @@ This container allows you to:
 - Manage databases with **phpMyAdmin** and **MariaDB**.
 - Basic **security hardening** and **UI enhancements**
 - To have a picture gallery page that includes an upload form so you can add your own images to the website.
-- To test a small app that I built Horrible UI but it gets the job done. Feel free to delete if you don’t want it!
+- To test a small app that I built. Horrible UI I must admit. but it gets the job done :) Feel free to delete if you don’t want it!
 - To visit some Links (right panel) to some usefull resources on the web I collected. Also a (PHP, Python, etc) documentation links but they're hosted in the container.
   Too heavy to upload here so they are in .gitignore. Again, feel free to edit or delet it if you don't want it. However you can download the same documentation from their respective web sites!
 - To deploy it everywhere. It includes Bootstrap 5.3 minified, so there's no need of internet to run it.
