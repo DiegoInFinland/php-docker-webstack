@@ -42,12 +42,15 @@ To delete the container:
 ## Screenshots
 
 Dashboard - extremely simåple and functional. It follows Apache's look.
+
 ![Frontpage](scripts/img/frontpage.png)
 
 Image gallery. Images pops up when clicked. Also it can be deleted with delete button bellow the image.
+
 ![Page gallery](scripts/img/gallery.png)
 
 Apps page. In this case a list of the latest security vulnerabilities. Clicking on a title takes you to the original source for more information.
+
 ![App page](scripts/img/app.png)
 
 ## Security
