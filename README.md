@@ -29,15 +29,15 @@ This container allows you to:
 Firstly, you need Docker compose [docker](https://docker.com). Download it if you didn't already!
 
 Then, clone the repo:
-'''bash git clone
+```bash git clone ```
 
 After that, Installation is mostly quite forward, in the root directory:
-'''bash ./start_server.sh
+```bash ./start_server.sh ```
 
 This script will install composer and required libraries. Check scripts/install_additions.sh to see what's going on inside!
 
 To delete the container:
-'''bash docker compose down
+```bash docker compose down ```
 
 ## Screenshots
 
