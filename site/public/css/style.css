@@ -1,0 +1,53 @@
+h1 {
+    font-size: 50px;
+}
+a {
+    color: white; 
+    text-decoration: none;
+}
+
+a:hover {
+    color: bisque;
+    text-decoration: underline;
+}
+
+/*.list-group {
+    border: none;
+    background-color: transparent;
+}*/
+.list-group-item {
+    color: white;
+    background-color: transparent;
+    border: solid white 1px;
+}
+
+
+.list-group-item:hover {
+    color: black;
+    background-color: white;
+}
+
+/*ul li a {
+    color: white; 
+    
+} 
+*/
+ul li a .list-group-item:hover {
+    color: white;
+}
+
+.btn {
+    background-color: transparent;
+    border: solid white 1px; 
+    text-decoration: none; 
+}
+.btn:hover {
+    color: black;
+    background-color: white;
+}
+
+.footer_text {
+            font-size: small;
+            color: #a5bee6;
+            text-align: center;
+}

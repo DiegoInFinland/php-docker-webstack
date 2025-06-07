@@ -1,0 +1,8 @@
+#AuthType Basic
+#AuthName "Restricted"
+#AuthUserFile /var/www/html/.htpasswd
+#Require valid-user
+
+<FilesMatch "\.(lock|json)$">
+    Require all denied
+</FilesMatch>

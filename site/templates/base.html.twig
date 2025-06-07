@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> {{ title }} </title>
+    
+
+    {% block stylesheets %}
+        <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous"> -->
+        <link rel="stylesheet" href="/public/css/css/bootstrap.min.css"> 
+        <link rel="stylesheet" href="/public/css/style.css">
+    {% endblock %}
+
+    <style>
+        #scrollTopBtn {
+            display: none;
+            /* Oculto por defecto */
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        #scrollTopBtn:hover {
+            background-color: #0056b3;
+        }
+
+        #status {
+            font-size: 20px;
+            font-weight: bold;
+            color: blue;
+        }
+    </style>
+
+</head>
+
+<body class="bg-dark text-white">
+     <div class="container-fluid p-4 pb-5">
+        <a href="/">
+            <h1>Index of /</h1>
+        </a>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-lg-2 p-5 text-center">
+                <div class="list-group">
+                    <a href="http://localhost:8080" class="list-group-item list-group-item-action" target="_blank"><img src="/public/img/pma-icon.png" class="img-fluid"> PhpMyAdmin</a>
+                </div>
+            </div>
+
+
+    {% block body %} {% endblock %}  
+
+        <div class="col-md-12 col-lg-2 text-center">
+                <div class="list-group">
+                    <div class="list-group-item fw-bold p-1" style="background-color: #505b6b; ">Server Documentation</div>  
+
+                        <a href="https://phptherightway.com" class="list-group-item list-group-item-action" target="_blank">PHP the right way</a>
+                        <a href="/public/docs/php" class="list-group-item list-group-item-action" target="_blank">PHP manual</a>
+                        <a href="/public/docs/python" class="list-group-item list-group-item-action" target="_blank">Python manual</a>
+                        <a href="/public/docs/Mariadb.pdf" class="list-group-item list-group-item-action" target="_blank">Maria db</a>
+
+                    <div class="list-group-item fw-bold mt-3 border border-white p-1" style="background-color: #505b6b;">Demo/Test Apps</div>
+
+                        <a href="/public/info.php" class="list-group-item list-group-item-action" target="_blank">Info</a>
+                        <a href="/public/gallery.php" class="list-group-item list-group-item-action">Image Galley</a>
+                        <a href="/public/app.php?section=check_security" class="list-group-item list-group-item-action">Latest security advisory</a>
+                        <a href="/public/app.php?section=weather" class="list-group-item list-group-item-action">Weather advisory</a>
+                        <a href="/public/app.php?section=news" class="list-group-item list-group-item-action">News in Europe and the World</a>
+                        <a href="/public/app.php?section=converter" class="list-group-item list-group-item-action">Converter</a>   
+
+                    <div class="list-group-item fw-bold mt-3 border border-white p-1" style="background-color: #505b6b;">Web Development</div>
+
+                        <a href="https://dbdiagram.io" class="list-group-item list-group-item-action" target="_blank">Dbdiagram.io</a>
+                        <a href="https://eraser.io" class="list-group-item list-group-item-action" target="_blank">EraserIo</a>
+                        <a href="https://dillinger.io" class="list-group-item list-group-item-action" target="_blank">Dillinger</a>
+                        <a href="https://getbootstrap.com/docs/5.3/getting-started/introduction/" class="list-group-item list-group-item-action" target="_blank">Bootstrap 5.3</a>
+                        <a href="https://g.co/kgs/eFZ8rPA" class="list-group-item list-group-item-action" target="_blank">HTML Picker</a>
+        </div>
+
+    </div> <!-- row -->
+</div> <!-- container -->
+
+<div class="container-fluid pb-5"></div>
+
+    <div class="container-fluid">
+        <footer class="footer_text pb-5">
+            <a href="https://httpd.apache.org/docs/2.4/en/" target="_blank"> <img src="/public/img/apache_pb.png" class="img-fluid pb-5" /></a><br>
+
+                    <p>
+                    Apache HTTP Server and the Apache feather logo are trademarks of The Apache Software Foundation. 
+                    Used here for informational purposes only. 
+                    For more information, visit <a href="https://www.apache.org/foundation/marks/faq/">apache.org</a>.
+                    </p><br>
+
+
+            <button type=" button" class="btn btn-primary" id="reload">Reload</button>
+        </footer>
+    </div>
+    <br>
+
+
+
+{% block javascripts %}   
+
+<script>
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        }
+
+</script>
+
+    <script src="/public/js/script.js"></script>
+    <script src="/public/js/js/bootstrap.min.js"></script> 
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script> -->
+
+{% endblock %}
+
+
+    </body>
+</html>

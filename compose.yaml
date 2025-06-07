@@ -1,0 +1,54 @@
+services:
+  db:
+    image: mariadb
+    environment:
+      MARIADB_ROOT_PASSWORD: admin
+      # default user is root 
+      #MARIADB_USER: admin
+      MARIADB_DATABASE: server_db
+    container_name: mariadb_backend
+    ports:
+      - "3306"
+    networks:
+      - backend
+    volumes:
+      - ./db:/var/lib/mysql
+
+  phpmyadmin:
+    image: phpmyadmin
+
+    environment:
+      PMA_HOST: db
+      # default user is root 
+      #PMA_USER: admin   
+      MYSQL_ROOT_PASSWORD: admin
+      PMA_PORT: 3306
+    ports:
+      - "127.0.0.1:8080:80"
+
+    container_name: phpmyadmin_backend
+    networks:
+      - backend
+
+    depends_on:
+      - db
+
+  apache:
+    image: php:8.4.5-apache
+    ports:
+      - "80:80"
+    volumes:
+      - ./site:/var/www/html
+
+    container_name: apache_frontend
+    networks:
+      - backend
+      - frontend
+
+networks:
+  frontend:
+    driver: bridge
+  backend:
+    driver: bridge
+
+

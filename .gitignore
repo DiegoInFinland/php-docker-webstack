@@ -1,0 +1,11 @@
+.DS_Store
+
+**/.DS_Store  
+/db 
+site/vendor/
+site/public/gallery/
+site/public/docs/
+site/.htpasswd
+site/.DS_Store 
+
+

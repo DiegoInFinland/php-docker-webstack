@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} {{ title }} {% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+{% endblock %}
+
+{% block body %}
+
+    <div class="col-md-12 col-lg-8">
+    
+    <!-- <button id="scrollTopBtn" onclick="scrollToTop()">⬆ Go Top</button> -->
+
+        <hr class="pb-3">
+        
+                {% for page in show_dir %}
+                    {% set fullPath = sites_path ~ '/' ~ page %} 
+
+                        {#{% if is_dir(fullPath) %}#}
+                            <img src="/public/img/right.gif"> <a href="/sites/{{ page }}"><img src="/public/img/folder.png">{{ page }} </a><br>
+                        {#{% endif %}#}
+
+                {% endfor %}
+
+        <hr class="p-3">
+    </div>
+
+
+{% endblock %}
+
+

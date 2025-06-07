@@ -1,0 +1,73 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} {{ title }} {% endblock %}
+
+    {% block stylesheets %}
+        {{ parent() }}
+    {% endblock %}
+
+    {% block body %}
+
+    <div class="col-md-12 col-lg-8">
+    <button id="scrollTopBtn" onclick="scrollToTop()">⬆ Go Top</button>
+
+        <hr class="pb-3">
+        {% if error %}
+            <p class="text-center" style="color: red;">{{ error }}</p>
+                {% elseif section == 'converter' %}
+                    <h2 class="text-center">Converter</h2>
+
+                     <form action="app.php?section=converter" method="post" class="p-5">
+                        <div class="input-group input-group-sm mb-3 d-flex">
+                            <span class="input-group-text" id="inputGroup-sizing-sm">Meters</span>
+                                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" name="value" id="value" required>
+
+                            <select class="form-select" aria-label="to_unit" name="to_unit" id="to_unit">
+                                <option selected>Choose an option to convert to British System Units</option>
+                                <option value="inches">Inches</option>
+                                <option value="feet">Feet</option>
+                            </select>
+                                <input type="submit"></button>
+                        </div>
+                    </form>
+
+                    {% if result is not null %}
+                      <p class="text-center">  {{ result }} {{ unit }} </p> 
+                    {% else %}
+                        <p class="text-center"> {{ error }} </p> 
+                    {% endif %}
+
+                {% elseif section == 'check_security' %}
+                    {% for item in feed.channel.item %}
+                            <h2 class="text-center"> <a href=" {{ item.link }} "> {{ item.title|e }} </a> </h2>
+                            <p class="text-center">  <a href=" {{ item.link }} "> {{ item.link }} </a> -  {{ item.description }} </p><br>
+                            <p class="text-center"> {{ item.pubDate }} </p>
+                    {% endfor %}
+
+                {% elseif section == 'weather' %}
+                    {% for item in feed.channel.item %}
+                            <a href=" {{ item.link }} "> <h2 class="text-center"> {{ item.title}} </h2> </a> 
+                            <p class="text-center">  {{ item.description }} </p><br>
+                            <p class="text-center"> {{ item.pubDate }} </p>
+                    {% endfor %}
+
+                {% elseif section == 'news' %}
+                    {% for item in feed.channel.item %}
+                             <a href=" {{ item.link }} "> <h2 class="text-center"> {{ item.title|e }} </h2> </a> 
+                            <p class="text-center">  {{ item.description }} </p><br>
+                            <p class="text-center"> {{ item.pubDate }} </p>
+                    {% endfor %}
+
+                {% else %}
+                    <h2> {{ content }} </h2>
+                {% endif %}
+        <hr class="p-3">
+    </div>
+
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+{% endblock %}
+
+

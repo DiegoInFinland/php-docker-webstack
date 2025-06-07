@@ -1,0 +1,130 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} {{ title }} {% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+{% endblock %}
+
+
+{% block body %}
+
+<style>
+
+img:hover {
+    box-shadow: 0 0 2px 1px rgba(0,140,186,0.5);
+    opacity: 0.7;
+    filter: brightness(80%);
+    transform: scale(1.05);
+}
+
+</style>
+
+
+<div class="col-md-12 col-lg-8">
+
+    <button id="scrollTopBtn" onclick="scrollToTop()">⬆ Go Top</button>
+        <hr class="pb-3">
+{#
+style="width: 200px;
+card-img-top
+btn-sm
+#}
+
+<style>
+.img-fixed {
+  width: 100%;
+  height: 200px;        /* altura fija */
+  object-fit: cover;    /* recorta sin deformar */
+}
+</style>
+
+        <div class="container-fluid my-4 p-0">
+
+        {% if upload is defined and upload == 0 %}
+                <p class="text-center"> {{ content }}</p>
+            {% else %}
+                <p class="text-center"> {{ content }} </p>
+        {% endif %}
+          
+            <div class="d-flex flex-wrap gap-3 justify-content-center">
+
+                {% if images is not empty%}
+                    {% for image in images %}
+                        <div class="card shadow-sm bg-secondary" style="width: 250px;" data-name="{{ image }}" >
+                            <a href="/public/gallery/{{ image }} " target="_blank"> 
+                                <img src= "/public/gallery/{{ image }}" class="card-img-top img-fixed rounded" id="{{ image }}" title="{{ image }}"></a>
+                            
+                                <!-- <div class="card-body p-0 text-center"> <p class="card-text text-truncate "><small>{{ image }}</small></p> </div> -->
+                                    <button class="btn btn-danger w-100 btn-delete p-2">Delete</button>
+                        </div>
+                {% endfor %}
+
+                {% else %}
+                    <p class="text-center">No images found</p>
+                {% endif %}
+
+            </div>
+        </div>
+
+        <hr class="p-3">
+        {% if upload == 1 %}
+            <p class="text-center">{{ content }}</p>
+        {% else %}
+            <p class="text-center">{{ content }}</p>
+        {% endif %}
+
+            {# upload.twig #}
+            <div class="text-center p-5">
+                <form action="/public/gallery.php" method="post" enctype="multipart/form-data">
+                    <label for="image_file">Upload file:</label>
+                    <input type="file" name="image_file" id="image_file" accept="image/*" required>
+                        <button type="submit" class="btn btn-primary">Upload</button>
+                </form>
+            </div>
+</div>
+<br>
+{% endblock %}
+
+{% block javascripts %}
+
+<script>
+
+document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll(".btn-delete").forEach(button => {
+        button.addEventListener("click", () => {
+            if (!confirm("Delete this image?")) return;
+
+            const card = button.closest(".card");
+            const name = card.dataset.name; 
+
+            fetch("/public/gallery.php", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded"
+                },
+                body: "image=" + encodeURIComponent(name) 
+            })
+            .then(res => res.text())
+            .then(response => {
+                if (response.includes("deleted")) {
+                    card.remove(); // delete visually the card 
+                } else {
+                    alert(response);
+                }
+            })
+            .catch(err => {
+                console.error(err);
+                alert("Error to delete image"); 
+            });
+        });
+    });
+});
+
+</script>
+
+    {{ parent() }}
+{% endblock %}
+
+
+
