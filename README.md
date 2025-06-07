@@ -2,12 +2,12 @@
 
 This is a lightweight Docker setup designed to host and organize multiple PHP-based web projects.
 
-I made this container to group and manage my many unfinished or experimental PHP projects in a more meaningful way. I often use it when I need to do something in PHP.
+I did this project mostly to group and manage my many unfinished or experimental PHP projects in a more meaningful way. I often use it when I need to do something in PHP.
 
 > **Note:** This is a personal project and is not intended for production use out of the box. However, with a few adjustments such as enhanced security and a better UI can be adapted for production environments.
 > I’ve shared this repository in the hope that it may be useful to others, but please note that I maintain it in my spare time and may not always be able to respond or implement improvements quickly. Thanks for your patience!
 
-### 🌱 Who is it for?
+### Who is it for?
 
 - Developers looking for a quick way to spin up and manage PHP projects using Docker.
 - Beginners learning PHP, as it includes clean project structure with **Twig** for templating, which helps separate logic from the frontend.
